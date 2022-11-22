@@ -8,75 +8,58 @@ import { useForm } from "react-hook-form";
 const URI = 'http://localhost:9000/blogs/'
 
 const CompCreateCuenta = () => {
-    const [dni, setDNI] = useState('')
-    const [name, setName] = useState('')
-    const [last_name, setLastName] = useState('')
-    const [birthday, setBirthday] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
   
 //Expresiones regulares
 const dniRegex = RegExp(/[0-9] {8} [AZ] {1}/);
 const emailRegex = RegExp(/^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/ );
 
-const [userInfo, setUserInfo] = useState({
-    dni: "",
-    email: "",
-    
-  });
-  const handleChange = (event) => {
-    const { dni, value } = event.target;
-    setUserInfo({ ...userInfo, [dni]: value });
-  };
 
   const { register, handleSubmit } = useForm();
     
-const store = async (e) => {
-    e.preventDefault()
+const store = async (userInfo) => {
+
   
-    await axios.post (URI,{dni:dni,name:name,last_name:last_name,birthday:birthday,phone:phone,email:email,password:password})
+    await axios.post (URI,{dni:userInfo.dni,name:userInfo.name,last_name:userInfo.last_name,birthday:userInfo.birthday,phone:userInfo.phone,email:userInfo.email,password:userInfo.password})
    
-  /* navigate('/')*/
+ 
 }
 
 
         return(
             <div>
                 <h3>CREAR REGISTRO</h3>
-                <form onSubmit={store}>
+                <form onSubmit={handleSubmit(store)}>
                     <div className='mb-3'>
                     <label className='form-label'>DNI</label>
-                    <input
+                    <input name='dni'
                         {...register("dni")}
-                        value={dni}
-                        onChange={ (e)=> setDNI(e.target.value)}
+                       
                         type="text"
                         className='form-control'
                         />
                     </div>
                     <div className='mb-3'>
                     <label className='form-label'>Nombre</label>
-                    <input
-                        value={name}
-                        onChange={ (e)=> setName(e.target.value)}
+                    <input name='name'
+                       {...register("name")}
+                      
                         type="text"
                         className='form-control'
                         />
                     <div className='mb-3'>
                     <label className='form-label'>Apellido</label>
-                    <input
-                        value={last_name}
-                        onChange={ (e)=> setLastName(e.target.value)}
+                    <input name='last_name'
+                     {...register("last_name")}
+                     
                         type="text"
                         className='form-control'
                         />
                     </div>    
                     <div className='mb-3'>
                     <label className='form-label'>Cumple</label>
-                    <input
-                        value={birthday}
-                        onChange={ (e)=> setBirthday(e.target.value)}
+                    <input name='birthday'
+                     {...register("birthday")}
+                     
                         type="date"
                         className='form-control'
                    />
@@ -84,28 +67,26 @@ const store = async (e) => {
                     </div>
                     <div className='mb-3'>
                     <label className='form-label'>Telefono</label>
-                    <input
-                        value={phone}
-                        onChange={ (e)=> setPhone(e.target.value)}
+                    <input name='phone'
+                     {...register("phone")}                    
                         type="text"
                         className='form-control'
                         />
                     </div>
                     <div className='mb-3'>
                     <label className='form-label'>email</label>
-                    <input
+                    <input name='email'
                         {...register("email")}
-                        value={email}
-                        onChange={ (e)=> setEmail(e.target.value)}
+                      
                         type="text"
                         className='form-control'
                         />
                     </div>
                     <div className='mb-3'>
                     <label className='form-label'>Password</label>
-                    <input
-                        value={password}
-                        onChange={ (e)=> setPassword(e.target.value)}
+                    <input name='password'
+                     {...register("password")}
+                      
                         type="text"
                         className='form-control'
                         />
