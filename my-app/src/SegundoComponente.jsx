@@ -5,6 +5,7 @@ import { Container } from '@mui/system';
 import Popup from 'reactjs-popup';
 
 
+
 import smile from './1.png';
 import leo from './2.png';
 import frodo from './3.png';
@@ -21,7 +22,7 @@ const SegundoCompoente = () => {
     const Contenido1 = frutas[PrimerIndice]
     const Contenido2 = frutas[SegundoIndice]
     const Contenido3 = frutas[TercerIndice]
-
+    const Puntuacion = TercerIndice
 
     const [nombre, setNombre] = useState(smile)
     const cambiarNombre = () => {
@@ -69,7 +70,7 @@ const SegundoCompoente = () => {
             </Container>
             <Container sx={{display: 'flex', justifyContent: 'center', width:'100%', hight:'90%'}}>
               
-            {(PrimerIndice == SegundoIndice) && (TercerIndice == SegundoIndice) && <Typography sx={{marginTop:'5%'}}>{  'Has ganado' }</Typography> }
+            {(PrimerIndice == SegundoIndice) && (TercerIndice == SegundoIndice) && <Typography sx={{marginTop:'5%'}}>{  'Has ganado'+"  "+TercerIndice+" Puntos" }</Typography> }
             </Container>
 
         </>
