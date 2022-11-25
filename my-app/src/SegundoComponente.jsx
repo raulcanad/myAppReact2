@@ -15,18 +15,17 @@ import { DialogContent,Typography } from "@mui/material";
 const SegundoCompoente = () => {
 
     const frutas = [smile, leo, sira, frodo];
-    const generarFrutas = () => frutas[Math.floor(Math.random() * 4)]
-    const PrimerIndice = Math.floor(Math.random() * 4)
-    const SegundoIndice = Math.floor(Math.random() * 4)
-    const TercerIndice = (Math.floor(Math.random() * 3) + 1)
-    const Contenido1 = frutas[PrimerIndice]
-    const Contenido2 = frutas[SegundoIndice]
-    const Contenido3 = frutas[TercerIndice]
+    
+    const [PrimerIndice,setPrimerIndice]= useState( Math.floor(Math.random() * 4))
+    const [SegundoIndice,setSegundoIndice]= useState( Math.floor(Math.random() * 4))
+    const [TercerIndice,setTercerIndice]= useState( Math.floor(Math.random() * 4))
     const Puntuacion = TercerIndice
-
-    const [nombre, setNombre] = useState(smile)
+   
+   
     const runGame = () => {
-        setNombre(generarFrutas());
+        setPrimerIndice(Math.floor(Math.random() * 4))
+        setSegundoIndice(Math.floor(Math.random() * 4))
+        setTercerIndice(Math.floor(Math.random() * 4))    
     }
    
   
@@ -44,14 +43,14 @@ const SegundoCompoente = () => {
                     <CardMedia
                         component="img"
                         height="140"
-                        image={Contenido1}
+                        image={frutas[PrimerIndice]}
                         alt="primer slot" />
                 </Card>
                 <Card sx={{ maxWidth: '30%', background: '#40CFFF' }}>
                     <CardMedia
                         component="img"
                         height="140"
-                        image={Contenido2}
+                        image={frutas[SegundoIndice]}
 
                         alt="segundo slot" />
                 </Card>
@@ -59,7 +58,7 @@ const SegundoCompoente = () => {
                     <CardMedia
                         component="img"
                         height="140"
-                        image={Contenido3}
+                        image={frutas[TercerIndice]}
                         alt="tercer slot" />
                 </Card>
                 
