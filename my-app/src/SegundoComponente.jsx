@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { Container } from '@mui/system';
 import Popup from 'reactjs-popup';
-
+import UserProfile from './blog/UserProfile'
 
 
 import smile from './1.png';
@@ -26,6 +26,12 @@ const SegundoCompoente = () => {
         setPrimerIndice(Math.floor(Math.random() * 4))
         setSegundoIndice(Math.floor(Math.random() * 4))
         setTercerIndice(Math.floor(Math.random() * 4))    
+        if((PrimerIndice == SegundoIndice) && (TercerIndice == SegundoIndice)){
+            const user = UserProfile.getUser()
+            if(user==null){
+                alert("Logeate para guardar los resultados")
+            }
+        }
     }
    
   
