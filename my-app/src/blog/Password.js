@@ -1,19 +1,21 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CompCreateLog from './CrearLog';
 
-const Login = () => {
+const Login = (props) => {
 
     return (
         <div className="App">
             <CompCreateLog/>
-        <BrowserRouter>
+      { /* <BrowserRouter>
             <Routes>             
                 <Route path='/create' element={<CompCreateLog/>}/>              
             </Routes>
-        </BrowserRouter>
+    </BrowserRouter>*/}
         
       </div>
     );
 }
  
 export default Login;
+
+//borrar más tarde

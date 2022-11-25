@@ -61,4 +61,21 @@ export const deleteBlog = async (req, res) => {
     }
 }
 
+//Mostrar loginUser
+export const loginUser = async (req, res)=> {
 
+
+    try {
+       const blog= await BlogModel.findAll({
+              where:{ name:req.body.name ,password:req.body.password } 
+        })
+        if (blog[0]===undefined){
+            res.status(500).send('User doesnt exist!');
+        }else{   res.json(blog[0])}
+        
+     
+    } catch (error) {
+        res.json({message: error.message})
+    }
+
+}

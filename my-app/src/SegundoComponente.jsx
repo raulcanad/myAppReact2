@@ -70,7 +70,7 @@ const SegundoCompoente = () => {
             </Container>
             <Container sx={{display: 'flex', justifyContent: 'center', width:'100%', hight:'90%'}}>
               
-            {(PrimerIndice == SegundoIndice) && (TercerIndice == SegundoIndice) && <Typography sx={{marginTop:'5%'}}>{  'Has ganado'+"  "+TercerIndice+" Puntos" }</Typography> }
+            {(PrimerIndice == SegundoIndice) && (TercerIndice == SegundoIndice) && <Typography sx={{marginTop:'5%'}}>{  'Has ganado'+"  "+Puntuacion+" Puntos" }</Typography> }
             </Container>
 
         </>
