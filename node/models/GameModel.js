@@ -6,8 +6,9 @@ import db from "../database/db.js";
 
 
  const GameModel= db.define('game',{
-        user_name: { type: DataTypes.STRING },
         score: { type: DataTypes.INTEGER },
+        userId: { type: DataTypes.INTEGER },
+        date: {type: DataTypes.DATE}
  })
 
 
