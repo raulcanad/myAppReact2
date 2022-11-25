@@ -25,6 +25,7 @@ export const getGames = async (req, res)=> {
 //Crear un registro
 export const createGames = async (req, res) => {
 try {
+    
     await  GameModel.create(req.body)
     res.json({
         "message":"¡Registro creado correctamente!"
