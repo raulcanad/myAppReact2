@@ -25,7 +25,7 @@ const SegundoCompoente = () => {
     const Puntuacion = TercerIndice
 
     const [nombre, setNombre] = useState(smile)
-    const cambiarNombre = () => {
+    const runGame = () => {
         setNombre(generarFrutas());
     }
    
@@ -66,7 +66,7 @@ const SegundoCompoente = () => {
             </Container>
 
             <Container sx={{display: 'flex', justifyContent: 'center', width:'100%'}}>
-            <button onClick={() => cambiarNombre()}>Clickéame</button>
+            <button onClick={runGame}>Clickéame</button>
             </Container>
             <Container sx={{display: 'flex', justifyContent: 'center', width:'100%', hight:'90%'}}>
               
