@@ -15,5 +15,4 @@ routesa.delete('/:id',deleteEntrada)
 
 
 
-
 export default  routesa;
