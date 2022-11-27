@@ -6,6 +6,7 @@ import db from './database/db.js'
 import blogRoutes from './routes/routes.js'
 import blogEntrada from './routes/routesa.js'
 import blogGame from  './routes/routeso.js'
+import blogTrophy from  './routes/routese.js'
 
 const app = express()
 
@@ -14,6 +15,7 @@ app.use(express.json())
 app.use('/blogs', blogRoutes)
 app.use('/entrada',blogEntrada)
 app.use('/game',blogGame)
+app.use('/trophy',blogTrophy)
 
 
 try {

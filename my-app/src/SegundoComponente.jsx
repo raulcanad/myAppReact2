@@ -21,6 +21,7 @@ const SegundoCompoente = () => {
     const [TercerIndice,setTercerIndice]= useState( Math.floor(Math.random() * 4))
     
     const URI = 'http://localhost:9000/game'
+    const URI2 = 'http://localhost:9000/trophy/'
    
     const runGame = async() => {
         setPrimerIndice(Math.floor(Math.random() * 4))
@@ -38,9 +39,21 @@ const SegundoCompoente = () => {
         }
     }
    
-  
-        
     
+        const [trophy, setTrophy]=useState([])
+        useEffect(()=>{
+            getTrophy()
+        },[])
+        //procedimiento para mostrar los trofeos
+        const getTrophy= async () =>{
+          const res2=  await axios.get(URI2)
+          setTrophy(res2.data)
+        }
+    
+        const  premio=  trophy.map(function(prefijo, indice) {
+            return (indice == TercerIndice) ? prefijo.description : "";
+         });
+    console.log(premio)
 
 
     return (
@@ -79,8 +92,22 @@ const SegundoCompoente = () => {
             </Container>
             <Container sx={{display: 'flex', justifyContent: 'center', width:'100%', hight:'90%'}}>
               
-            {(PrimerIndice == SegundoIndice) && (TercerIndice == SegundoIndice) && <Typography sx={{marginTop:'5%'}}>{  'Has ganado'+"  "+ TercerIndice+" Puntos" }</Typography> }
+            {(PrimerIndice == SegundoIndice) && (TercerIndice == SegundoIndice) && <Typography sx={{marginTop:'5%'}}>{  'Has ganado'+"  "+ TercerIndice+" Puntos y el premio es un : "+ premio}</Typography> }
             </Container>
+            <Container>
+                {
+                   /*trophy.map ((troph,indice)=>(
+                  
+                        <tr key={indice==0}>
+                            <td>{troph.description}</td>
+                        </tr>
+                   ))
+                   */ }
+                  
+                   
+                   
+            </Container>
+
 
         </>
 
