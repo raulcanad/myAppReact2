@@ -1,15 +1,12 @@
 import axios from 'axios'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+
 import { useForm } from "react-hook-form";
-import { color } from '@mui/system';
-import { red } from '@mui/material/colors';
-import { DialogContent,Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 
 
 const URI = 'http://localhost:9000/blogs/'
 
-const CompCreateCuenta = () => {
+const CreateAccountForm = () => {
 
     //Expresiones regulares
     
@@ -18,8 +15,7 @@ const CompCreateCuenta = () => {
     const messages = {
         req: "Este campo es obligatorio",
         dni: "El formato introducido no es el correcto",
-        //mail: "Debes introducir una dirección correcta",
-        //phone: "Debes introducir un número correcto"
+
     };
 
 
@@ -128,4 +124,4 @@ const CompCreateCuenta = () => {
 
 }
 
-export default CompCreateCuenta
+export default CreateAccountForm

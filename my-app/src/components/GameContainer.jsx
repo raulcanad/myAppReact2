@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { Container } from '@mui/system';
-import Popup from 'reactjs-popup';
-import UserProfile from './blog/UserProfile'
+
+import UserProfile from '../services/UserProfile'
 import axios from 'axios'
 
-import smile from './1.png';
-import leo from './2.png';
-import frodo from './3.png';
-import sira from './4.png';
-import { DialogContent,Typography } from "@mui/material";
+import smile from '../images/1.png';
+import leo from '../images/2.png';
+import frodo from '../images/3.png';
+import sira from '../images/4.png';
+import {Typography } from "@mui/material";
 
-const SegundoCompoente = () => {
+const GameContainer = () => {
 
     const frutas = [smile, leo, sira, frodo];
     
@@ -53,13 +53,13 @@ const SegundoCompoente = () => {
         const  premio=  trophy.map(function(prefijo, indice) {
             return (indice == TercerIndice) ? prefijo.description : "";
          });
-    console.log(premio)
+    
 
 
     return (
         <>
 
-           {/*<Container sx={{ display: 'flex', justifyContent: 'space-between', width: '60%', marginBottom: '10%' }}>*/}
+
             <Container sx={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10%' }}>
 
                 <Card sx={{ maxWidth: '30%', background: '#40CFFF' }}>
@@ -94,19 +94,9 @@ const SegundoCompoente = () => {
               
             {(PrimerIndice == SegundoIndice) && (TercerIndice == SegundoIndice) && <Typography sx={{marginTop:'5%'}}>{  'Has ganado'+"  "+ TercerIndice+" Puntos y el premio es un : "+ premio}</Typography> }
             </Container>
-            <Container>
-                {
-                   /*trophy.map ((troph,indice)=>(
-                  
-                        <tr key={indice==0}>
-                            <td>{troph.description}</td>
-                        </tr>
-                   ))
-                   */ }
-                  
-                   
-                   
-            </Container>
+        
+
+
 
 
         </>
@@ -115,4 +105,4 @@ const SegundoCompoente = () => {
 
     )
 }
-export default SegundoCompoente
+export default GameContainer

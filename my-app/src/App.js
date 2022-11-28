@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import PrimerCompoente from './PrimerCompoente';
-import SegundoComponente from './SegundoComponente';
-import Cuestionarios from'./blog/Cuestionarios';
+import React from 'react';
+
+import GameContainer from './components/GameContainer';
+import TopMenu from './components/TopMenu';
 
 
 function App() {
- 
+
 
   return (
-    
+
     <>
-    
-    <Cuestionarios/>
-   <SegundoComponente/>
-   
-   </>
-    
+
+      <TopMenu />
+      <GameContainer />
+
+    </>
+
 
   )
 }

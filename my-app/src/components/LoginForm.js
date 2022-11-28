@@ -1,22 +1,19 @@
 import axios from 'axios'
-import { useState } from 'react'
+
 import { useForm } from "react-hook-form";
-import { DialogContent, Typography } from "@mui/material";
-import UserProfile from './UserProfile';
+import { Typography } from "@mui/material";
+import UserProfile from '../services/UserProfile';
 
 
 
-const CompCreateLog = (props) => {
+const LoginForm = (props) => {
 
     const URI = 'http://localhost:9000/blogs/login'
-    /*const [name, setName] = useState('')
-    const [password, setPassword] = useState('')*/
+   
 
     const messages = {
         req: "Este campo es obligatorio",
-        // name: "El formato introducido no es el correcto",
-        //mail: "Debes introducir una dirección correcta",
-        //phone: "Debes introducir un número correcto"
+        
     };
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -37,11 +34,7 @@ const CompCreateLog = (props) => {
 
 
     //procedimiento guardar
-    /*const store = async (e) => {
-        e.preventDefault()
-       await  axios.post (URI,{name:name,password:password})
-      /* navigate('/')*/
-    //}
+    
 
 
     return (
@@ -53,8 +46,7 @@ const CompCreateLog = (props) => {
                     <label className='form-label'>Nombre</label>
                     <input name='name'
                         {...register("name", { required: messages.req })}
-                        //value={name}
-                        //onChange={(e) => setName(e.target.value)}
+
                         type="text"
                         className='form-control'
                     />
@@ -63,9 +55,9 @@ const CompCreateLog = (props) => {
                     <div className='mb-3'>
                         <label className='form-label'>Password</label>
                         <input name='password'
-                            //value={password}
+
                             {...register("password", { required: messages.req })}
-                            //  onChange={(e) => setPassword(e.target.value)}
+
                             type="text"
                             className='form-control'
                         />
@@ -79,4 +71,4 @@ const CompCreateLog = (props) => {
 
 }
 
-export default CompCreateLog
+export default LoginForm

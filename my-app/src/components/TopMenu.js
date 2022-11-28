@@ -1,14 +1,13 @@
 
 import { Button, Container } from '@mui/material';
-import Formulario2 from "./UserData";
-import Login from "./Password";
+import CreateAccountForm from './CreateAccountForm';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import UserProfile from "./UserProfile";
+import UserProfile from "../services/UserProfile";
 import { useState } from 'react';
-import CompCreateLog from './CrearLog';
+import LoginForm from './LoginForm';
 
-const Cuestionarios = () => {
+const TopMenu = () => {
 
   const [user, setUser] = useState(UserProfile.getUser())
 
@@ -27,14 +26,14 @@ const Cuestionarios = () => {
 
     <Container sx={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '5%' }}>
 
-      <Popup trigger={<Button /*onClick={sayHello}*/ sx={{ marginRight: '2%' }} variant="contained">Hazte jugador
+      <Popup trigger={<Button  sx={{ marginRight: '2%' }} variant="contained">Hazte jugador
 
-      </Button>} position="bottom center" ><Formulario2 /></Popup>
+      </Button>} position="bottom center" ><CreateAccountForm/></Popup>
 
       {
-        (user == null) && (<Popup trigger={<Button /*onClick={sayHello}*/ sx={{ marginRight: '2%' }} variant="contained">Login
+        (user == null) && (<Popup trigger={<Button  sx={{ marginRight: '2%' }} variant="contained">Login
 
-        </Button>} position="bottom center" ><CompCreateLog updateUserState = {updateUserState} /></Popup>)
+        </Button>} position="bottom center" ><LoginForm updateUserState = {updateUserState} /></Popup>)
 
       }
 
@@ -57,4 +56,4 @@ const Cuestionarios = () => {
   )
 }
 
-export default Cuestionarios;
+export default TopMenu;
